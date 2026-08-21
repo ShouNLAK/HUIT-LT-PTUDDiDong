@@ -1,10 +1,12 @@
 import 'dart:io';
 
 double giamGia(int soLuong){
-  if (soLuong >= 10)
+  if (soLuong >= 10) {
     return 0.9;
-  if (soLuong >= 5)
+  }
+  if (soLuong >= 5) {
     return 0.95;
+  }
   return 1;
 }
 

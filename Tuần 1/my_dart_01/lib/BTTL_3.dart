@@ -47,27 +47,28 @@ List<int> nhapDS() {
 
 int tongPhanTuDanhSach(List<int> obj){
   int Tong = 0;
-  obj.forEach((num){
+  for (var num in obj) {
     Tong += num;
-  });
+  }
   return Tong;
 }
 
 List<int> PhanTuNguyenTo(List<int> obj){
   List<int> tmp = [];
-  obj.forEach((num){
-    if(checkPrime(num))
+  for (var num in obj) {
+    if(checkPrime(num)) {
       tmp.add(num);
-  });
+    }
+  }
   return tmp;
 }
 
 void timHoacThem(List<int> obj, int num){
-  if (obj.any((n) => n == num))
+  if (obj.any((n) => n == num)) {
     print("Phần tử tồn tại - Nằm ở vị trí ${obj.indexWhere((n) => n == num)}");
-  else
+  } else
     {
       obj.add(num);
-      print("Phần tử không tồn tại - Đã thêm ở vị trí cuối : ${obj}");
+      print("Phần tử không tồn tại - Đã thêm ở vị trí cuối : $obj");
     }
 }

@@ -8,7 +8,7 @@ void main(){
   int? n;
   arr = nhapDS();
 
-  print("Xuất danh sách : ${arr}");
+  print("Xuất danh sách : $arr");
   print("Tổng các phần tử : ${tongPhanTuDanhSach(arr)}");
   print("Các phần tử là số nguyên tố : ${PhanTuNguyenTo(arr)}");
   do {

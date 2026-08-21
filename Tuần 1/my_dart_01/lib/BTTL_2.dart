@@ -24,8 +24,9 @@ bool isLe (int number)
   int tmp = number;
   while (tmp != 0)
   {
-    if ((tmp % 10) % 2 != 0)
+    if ((tmp % 10) % 2 != 0) {
       return true;
+    }
     tmp ~/= 10;
   }
   return false;
@@ -35,8 +36,9 @@ int layMax (int number){
   int tmp = number, max = 0;
   while (tmp != 0)
   {
-    if (tmp % 10 > max)
+    if (tmp % 10 > max) {
       max = tmp % 10;
+    }
     tmp ~/= 10;
   }
   return max;

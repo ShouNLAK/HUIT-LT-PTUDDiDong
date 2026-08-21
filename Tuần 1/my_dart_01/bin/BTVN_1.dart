@@ -8,7 +8,7 @@ void main(){
   int? n;
   arr = nhapDS_Random();
 
-  print("Xuất danh sách : ${arr}");
+  print("Xuất danh sách : $arr");
   print("Tổng các phần tử : ${tongPhanTuDanhSach(arr)}");
   print("Trung bình cộng các số lẻ : ${trungBinhCong_SoLe(arr) != 0 ? trungBinhCong_SoLe(arr) : "Danh sách không có số lẻ"}");
   print("Danh sách đối xứng : ${isDanhSachDoiXung(arr)}");
@@ -30,7 +30,7 @@ void main(){
       } else {
         n = parsed; 
         xoaPhanTu(arr, n);
-        print("${arr}");
+        print("$arr");
       }
     } while (n == null);
 }

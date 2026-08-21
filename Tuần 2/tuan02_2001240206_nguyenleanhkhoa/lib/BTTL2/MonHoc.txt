@@ -1,0 +1,5 @@
+1#MH001#Hệ quản trị cơ sở dữ liệu#3#9.8#9
+2#MH002#Lập trình C#2#5.5#9#10
+3#MH003#Khóa luận tốt nghiệp#8#9#8.7
+1#MH004#Mạng máy tính#2#5.5#9
+2#MH005#Lập trình trí tuệ nhân tạo#2#9#8#9

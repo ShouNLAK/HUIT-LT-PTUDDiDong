@@ -31,19 +31,21 @@ List<int> nhapDS_Random() {
 
 List<int> DSLe (List<int> obj){
   List<int> SoLe = [];
-  obj.forEach((num) {
-    if (num % 2 != 0)
+  for (var num in obj) {
+    if (num % 2 != 0) {
       SoLe.add(num);
-  });
+    }
+  }
   return SoLe;
 }
 
 List<int> DSChan (List<int> obj){
   List<int> SoChan = [];
-  obj.forEach((num) {
-    if (num % 2 == 0)
+  for (var num in obj) {
+    if (num % 2 == 0) {
       SoChan.add(num);
-  });
+    }
+  }
   return SoChan;
 }
 
@@ -64,19 +66,21 @@ bool isDanhSachDoiXung(List<int> obj) {
 
 bool isDanhSachTangDan (List<int> obj)
 {
-    for (int i = 0; i < obj.length - 1 ; i++)
-    if (obj[i] > obj[i + 1])
+    for (int i = 0; i < obj.length - 1 ; i++) {
+      if (obj[i] > obj[i + 1]) {
       return false;
+    }
+    }
   return true;
 }
 
 int phanTuMaxDS (List<int> obj){
   int max = obj[0];
-  obj.forEach((num)
-  {
-    if (num > max)
+  for (var num in obj) {
+    if (num > max) {
       max = num;
-  });
+    }
+  }
   return max;
 }
 

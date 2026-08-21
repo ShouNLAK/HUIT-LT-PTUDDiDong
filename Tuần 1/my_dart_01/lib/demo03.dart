@@ -4,9 +4,9 @@ void demo03()
   for (int i = 0; i < arrs.length; i++){
     print("Phần tử thứ $i : ${arrs[i]}");
   }
-   arrs.forEach((num) {
+   for (var num in arrs) {
     print("Giá trị : $num");
-   });
+   }
    for (var num in arrs){
     print("Số: $num");
    }
