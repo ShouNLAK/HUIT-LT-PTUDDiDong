@@ -3,7 +3,9 @@ import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTHD.dart';
 import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTTL_1_GV.dart';
 import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTTL_1_SV.dart';
 import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTTL_2.dart';
-import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTTL_3.dart'; 
+import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTTL_3.dart';
+import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTVN_1.dart';
+import 'package:lab3_flutter_nguyenleanhkhoa/screens/BTVN_2.dart';
 void main() { 
 runApp(const MyApp()); 
 }
@@ -124,6 +126,34 @@ class Menu extends StatelessWidget{
                   );
                 },
                 child: const Text("Bài 3 - Chi tiết Sản phẩm"),
+              ),
+            ),
+            const SizedBox(height: 15),
+            SizedBox(
+              width: 250,
+              height: 45,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BTVN_1()),
+                  );
+                },
+                child: const Text("Bài tập 04 - Nhóm"),
+              ),
+            ),
+            const SizedBox(height: 15),
+            SizedBox(
+              width: 250,
+              height: 45,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BTVN_2()),
+                  );
+                },
+                child: const Text("Bài tập 05 - Ngành học"),
               ),
             ),
           ],
