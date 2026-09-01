@@ -7,76 +7,76 @@ class ContainerDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ý nghĩa Container'),
+        title: const Text('Container Widget'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('1. Container làm Card nổi:', style: TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
+            const Text('1. Cơ chế Thu hẹp (Shrink-wrap):', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            const Text('Không cấu hình width/height, không có alignment -> Container co lại vừa khít với kích thước của phần tử child.'),
+            const SizedBox(height: 8),
             Container(
-              padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Colors.blueAccent, width: 2),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withValues(alpha: 0.3),
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: const Text(
-                'Container giúp nhóm các widget lại, căn lề (padding, margin), tạo viền (border), bo góc (borderRadius) và đổ bóng (boxShadow). Thường dùng làm nền cho các khối thông tin.',
-                style: TextStyle(fontSize: 16),
-              ),
+              color: Colors.blueAccent,
+              child: const Text(' Nội dung vừa khít ', style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
-            
-            const SizedBox(height: 30),
-            const Text('2. Container hình tròn (Ảnh đại diện):', style: TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
+
+            const SizedBox(height: 20),
+            const Text('2. Cơ chế Mở rộng (Expand):', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            const Text('Không cố định kích thước nhưng được thiết lập alignment -> Tự động giãn ra tối đa để lấp đầy không gian khả dụng.'),
+            const SizedBox(height: 8),
+            Container(
+              alignment: Alignment.center,
+              color: Colors.green,
+              child: const Text('Căn giữa & Giãn ra tối đa ngang', style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+
+            const SizedBox(height: 20),
+            const Text('3. Cơ chế Tuân thủ ràng buộc (Constraints):', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            const Text('Sử dụng width, height, padding, margin, decoration (color, borderRadius, border, boxShadow). Container giới hạn kích thước phần tử con.'),
+            const SizedBox(height: 8),
+            Container(
+              width: 280,
+              height: 120,
+              margin: const EdgeInsets.only(left: 10), // Khoảng cách lề ngoài
+              padding: const EdgeInsets.all(15), // Khoảng cách lề trong
+              alignment: Alignment.bottomRight, // Căn phần tử con
+              decoration: BoxDecoration(
+                color: Colors.orangeAccent,
+                borderRadius: BorderRadius.circular(15), // Bo góc
+                border: Border.all(color: Colors.red, width: 3), // Viền
+                boxShadow: [
+                  BoxShadow(color: Colors.grey.withValues(alpha: 0.5), blurRadius: 10, offset: const Offset(5, 5))
+                ] // Đổ bóng
+              ),
+              child: const Text('Ràng buộc 280x120', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            ),
+
+            const SizedBox(height: 20),
+            const Text('4. Thuộc tính clipBehavior:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            const Text('Cắt bỏ phần nội dung tràn viền (Clip.hardEdge).'),
+            const SizedBox(height: 8),
             Center(
               child: Container(
                 width: 120,
                 height: 120,
-                decoration: BoxDecoration(
+                clipBehavior: Clip.hardEdge,
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.orangeAccent,
-                  border: Border.all(color: Colors.deepOrange, width: 4),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.black26, blurRadius: 8, offset: Offset(2, 4))
-                  ]
+                  color: Colors.purple,
                 ),
-                alignment: Alignment.center,
-                child: const Icon(Icons.person, size: 60, color: Colors.white),
+                child: Transform.scale(
+                  scale: 1.5,
+                  child: const Icon(Icons.star, size: 100, color: Colors.yellow),
+                ), // Ngôi sao to tràn ra ngoài sẽ bị cắt gọn thành hình tròn
               ),
             ),
-
+            
             const SizedBox(height: 30),
-            const Text('3. Container nền chuyển màu Gradient:', style: TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            Container(
-              height: 100,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                gradient: const LinearGradient(
-                  colors: [Colors.purple, Colors.blue],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
-              child: const Text(
-                'Linear Gradient',
-                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
+            const Text('Lỗi phổ biến & Giải pháp (Troubleshooting):', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.red)),
+            const Text('- Unbounded height/width: Do đặt Container co giãn trong ListView/ScrollView. Khắc phục: Bọc trong SizedBox cố định hoặc Expanded/Flexible.', style: TextStyle(fontSize: 14)),
+            const Text('- Code rườm rà (Anti-pattern): Dùng Container chỉ để tạo khoảng trống. Khắc phục: Thay bằng SizedBox.', style: TextStyle(fontSize: 14)),
           ],
         ),
       ),

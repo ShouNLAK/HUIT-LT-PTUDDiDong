@@ -34,7 +34,7 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Thuyết trình Nhóm 2 - Demo Widgets',
+          'Thuyết trình Nhóm 2 - Demo',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.teal,
@@ -44,39 +44,78 @@ class MenuScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildMenuButton(context, 'Container Demo', const ContainerDemo()),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ContainerDemo()),
+                    );
+                  },
+                  child: const Text("1. Container Demo"),
+                ),
+              ),
               const SizedBox(height: 15),
-              _buildMenuButton(context, 'Stack Demo', const StackDemo()),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const StackDemo()),
+                    );
+                  },
+                  child: const Text("2. Stack Demo"),
+                ),
+              ),
               const SizedBox(height: 15),
-              _buildMenuButton(context, 'Dialogs Demo', const DialogDemo()),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const DialogDemo()),
+                    );
+                  },
+                  child: const Text("3. Dialogs Demo"),
+                ),
+              ),
               const SizedBox(height: 15),
-              _buildMenuButton(context, 'Date Picker Demo', const DatePickerDemo()),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const DatePickerDemo()),
+                    );
+                  },
+                  child: const Text("4. Date Picker Demo"),
+                ),
+              ),
               const SizedBox(height: 15),
-              _buildMenuButton(context, 'Time Picker Demo', const TimePickerDemo()),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TimePickerDemo()),
+                    );
+                  },
+                  child: const Text("5. Time Picker Demo"),
+                ),
+              ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildMenuButton(BuildContext context, String title, Widget page) {
-    return SizedBox(
-      width: 250,
-      height: 50,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.teal,
-          foregroundColor: Colors.white,
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => page),
-          );
-        },
-        child: Text(title),
       ),
     );
   }
